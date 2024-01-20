@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Authors (author_id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, birthdate DATE);
+CREATE TABLE IF NOT EXISTS Books (book_id INTEGER PRIMARY KEY, title TEXT, publication_year INTEGER, author_id INTEGER, FOREIGN KEY (author_id) REFERENCES Authors(author_id));
+CREATE TABLE IF NOT EXISTS Genres (genre_id INTEGER PRIMARY KEY, genre_name TEXT);
+CREATE TABLE IF NOT EXISTS BookGenres (book_id INTEGER, genre_id INTEGER, PRIMARY KEY (book_id, genre_id), FOREIGN KEY (book_id) REFERENCES Books(book_id), FOREIGN KEY (genre_id) REFERENCES Genres(genre_id));
+CREATE TABLE IF NOT EXISTS Users (user_id INTEGER PRIMARY KEY, username TEXT, full_name TEXT, email TEXT);
+CREATE TABLE IF NOT EXISTS UserBooks (user_book_id INTEGER PRIMARY KEY, user_id INTEGER, book_id INTEGER, borrow_date DATE, return_date DATE, FOREIGN KEY (user_id) REFERENCES Users(user_id), FOREIGN KEY (book_id) REFERENCES Books(book_id));

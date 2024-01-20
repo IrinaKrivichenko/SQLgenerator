@@ -1,0 +1,18 @@
+# Ignore the following files and folders
+
+# Environment files
+.env
+
+# IDE-specific files and directories
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Virtual environment
+venv/
+
+# Compiled Python files
+__pycache__/
+*.pyc
+/search.py

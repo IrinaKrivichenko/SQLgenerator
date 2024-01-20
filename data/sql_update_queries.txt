@@ -1,0 +1,4 @@
+UPDATE Authors SET birthdate = '1965-07-31' WHERE first_name = 'J.K.' AND last_name = 'Rowling';
+UPDATE Books SET publication_year = 1811 WHERE title = 'Pride and Prejudice';
+UPDATE Users SET username = 'Robert' WHERE username = 'Rob';
+UPDATE UserBooks SET return_date = '2024-01-30' WHERE user_book_id = 2;

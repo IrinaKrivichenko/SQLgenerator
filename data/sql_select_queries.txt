@@ -1,0 +1,9 @@
+SELECT Books.title, Authors.first_name, Authors.last_name FROM Books JOIN Authors ON Books.author_id = Authors.author_id;
+SELECT Users.full_name, Users.email, Books.title, UserBooks.borrow_date, UserBooks.return_date FROM UserBooks JOIN Users ON UserBooks.user_id = Users.user_id JOIN Books ON UserBooks.book_id = Books.book_id;
+SELECT Authors.first_name, Authors.last_name, COUNT(Books.book_id) AS total_books FROM Authors LEFT JOIN Books ON Authors.author_id = Books.author_id GROUP BY Authors.author_id;
+SELECT Books.title, GROUP_CONCAT(Genres.genre_name, ', ') AS genres FROM Books JOIN BookGenres ON Books.book_id = BookGenres.book_id JOIN Genres ON BookGenres.genre_id = Genres.genre_id GROUP BY Books.title;
+SELECT Genres.genre_name, COUNT(BookGenres.book_id) AS book_count FROM Genres LEFT JOIN BookGenres ON Genres.genre_id = BookGenres.genre_id GROUP BY Genres.genre_id;
+SELECT Books.title, Books.publication_year FROM Books JOIN Authors ON Books.author_id = Authors.author_id WHERE Authors.first_name = 'Jane' AND Authors.last_name = 'Austen';
+SELECT Users.full_name, UserBooks.borrow_date, UserBooks.return_date FROM UserBooks JOIN Users ON UserBooks.user_id = Users.user_id JOIN Books ON UserBooks.book_id = Books.book_id WHERE Books.title = 'Harry Potter and the Sorcerer''s Stone';
+SELECT Books.title, COUNT(BookGenres.genre_id) AS genre_count FROM Books JOIN BookGenres ON Books.book_id = BookGenres.book_id GROUP BY Books.title HAVING genre_count > 1;
+SELECT Books.title, Genres.genre_name FROM Books JOIN BookGenres ON Books.book_id = BookGenres.book_id JOIN Genres ON BookGenres.genre_id = Genres.genre_id WHERE Genres.genre_name = 'Horror';
