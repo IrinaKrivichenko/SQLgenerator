@@ -15,4 +15,3 @@ venv/
 # Compiled Python files
 __pycache__/
 *.pyc
-/search.py
