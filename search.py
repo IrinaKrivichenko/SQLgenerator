@@ -8,7 +8,7 @@ class SemanticSearcher:
     # https://github.com/vanna-ai/vanna/blob/main/papers/ai-sql-accuracy-2023-08-17.md#setting-up-architecture-of-the-test
     QUERY_CATEGORIES = {
         "create": {"k": 4},
-        "select": {"k": 9},
+        "select": {"k": 5},
         "insert": {"k": 1},
         "update": {"k": 1}
     }

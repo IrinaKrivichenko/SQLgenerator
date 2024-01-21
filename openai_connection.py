@@ -5,6 +5,7 @@ import os
 def ask_gpt(user_question, sql_examples):
     system_content = """
                 I would like you to create SQL queries based on user questions.
+                Return just query itself.
                 If you have multiple questions, please separate them with semicolons.
                 If it is an INSERT query, and you don't know the value for a field, you can omit it from the query
                 """
