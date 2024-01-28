@@ -2,6 +2,12 @@ import os
 import sqlite3
 from tabulate import tabulate
 
+
+class DatabaseExecuteError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+
 DB_NAME = 'book_db.db'
 
 def create_db(datafolder='./data/'):
@@ -12,6 +18,7 @@ def create_db(datafolder='./data/'):
         filepath = os.path.join(datafolder, file)
         execute_queries_from_file(filepath)
     print(f"{DB_NAME} is created")
+
 
 # Function to execute SQL queries from a file
 def execute_queries_from_file(filename):
@@ -49,10 +56,11 @@ def execute_sql_queries(queries):
     except sqlite3.Error as e:
         if connection:
             connection.rollback()
-        print(f"Error executing queries: {e} with {query}")
+        raise DatabaseExecuteError(f"Error executing queries: {e} with query {query}")
     finally:
         if connection:
             connection.close()
+
 
 if __name__ == "__main__":
     create_db()
