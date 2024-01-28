@@ -6,6 +6,4 @@ COPY . /app
 
 RUN pip install -r /app/requirements.txt
 
-EXPOSE 8080
-
 CMD ["python", "/app/main.py"]

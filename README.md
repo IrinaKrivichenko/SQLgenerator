@@ -36,10 +36,10 @@ Before you begin, please ensure that your system meets the following resource re
    ```bash
    docker build -t sqlgenerator:1.0 -f Dockerfile .
    ```
-5. Use the following command to run the SQLgenerator container, which makes it accessible on port 8080:
+5. Use the following command to run the SQLgenerator container:
 
    ```bash
-   docker run -it -p 8080:8080 sqlgenerator:1.0
+   docker run -it sqlgenerator:1.0
    ```
 6. Now you can enter messages via your keyboard in the console application.
      
