@@ -22,6 +22,7 @@ if __name__ == "__main__":
                 break
             except DatabaseExecuteError as e:
                 error_messages.append(str(e))
-                if len(error_messages)>10:
+                if len(error_messages) > 10:
                     print(f"Sorry I can not find answer to the question {user_input}")
+                    break
                 query_to_execute = correct_query(user_input, sql_examples, error_messages)
